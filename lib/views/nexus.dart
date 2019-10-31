@@ -11,7 +11,10 @@ class Nexus extends StatelessWidget {
           tag: 'logo',
           child: Image.asset('assets/full_logo.png'),
         ),
-        title: Text('Widgets'),
+        title: const Text('Widgets'),
+      ),
+      body: ListView(
+        children: <Widget>[],
       ),
     );
   }
