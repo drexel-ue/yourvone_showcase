@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:yourvone_showcase/utils.dart';
 import 'package:yourvone_showcase/views/landing.dart';
 
 void main() async {
@@ -10,14 +11,13 @@ void main() async {
     MaterialApp(
       title: 'Chat Demo',
       theme: ThemeData.dark(),
-      // initialRoute: landingRoute,
-      // routes: {
-      //   landingRoute: (BuildContext context) => Landing(),
-      //   registrationRoute: (BuildContext context) => Registration(),
-      //   loginRoute: (BuildContext context) => Login(),
-      //   chatRoute: (BuildContext context) => Chat(),
-      // },
-      home: Landing(),
+      initialRoute: landingRoute,
+      routes: {
+        landingRoute: (BuildContext context) => Landing(),
+        //   registrationRoute: (BuildContext context) => Registration(),
+        //   loginRoute: (BuildContext context) => Login(),
+        //   chatRoute: (BuildContext context) => Chat(),
+      },
     ),
   );
 }
