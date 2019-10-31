@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:yourvone_showcase/utils.dart';
+import 'package:yourvone_showcase/widgets/nexus/navigation_tile.dart';
 
 class Nexus extends StatelessWidget {
   const Nexus({Key key}) : super(key: key);
@@ -14,7 +16,13 @@ class Nexus extends StatelessWidget {
         title: const Text('Widgets'),
       ),
       body: ListView(
-        children: <Widget>[],
+        children: <Widget>[
+          NavigationTile(
+            leading: Icon(Icons.person),
+            route: loginRoute,
+            title: 'Login',
+          ),
+        ],
       ),
     );
   }
