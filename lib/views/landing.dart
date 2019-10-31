@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yourvone_showcase/utils.dart';
 
 class Landing extends StatelessWidget {
   const Landing({Key key}) : super(key: key);
@@ -24,7 +25,9 @@ class Landing extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             FlatButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, nexusRoute);
+              },
               color: Colors.teal,
               child: const Text(
                 'ENTER',
