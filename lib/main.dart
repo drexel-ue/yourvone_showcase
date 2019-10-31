@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yourvone_showcase/utils.dart';
 import 'package:yourvone_showcase/views/landing.dart';
+import 'package:yourvone_showcase/views/nexus.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,6 +15,7 @@ void main() async {
       initialRoute: landingRoute,
       routes: {
         landingRoute: (BuildContext context) => Landing(),
+        nexusRoute: (BuildContext context) => Nexus(),
         //   registrationRoute: (BuildContext context) => Registration(),
         //   loginRoute: (BuildContext context) => Login(),
         //   chatRoute: (BuildContext context) => Chat(),

@@ -1,2 +1,2 @@
 const landingRoute = 'LANDING';
-const hubRoute = 'HUB';
+const nexusRoute = 'NEXUS';

@@ -10,9 +10,12 @@ class Landing extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset(
-              'assets/logo.png',
-              height: 150,
+            Hero(
+              tag: 'logo',
+              child: Image.asset(
+                'assets/logo.png',
+                height: 150,
+              ),
             ),
             const SizedBox(height: 10),
             const Text(
