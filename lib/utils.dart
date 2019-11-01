@@ -10,8 +10,11 @@ void showLoading(BuildContext context) {
   showDialog(
     context: context,
     barrierDismissible: false,
-    builder: (BuildContext context) => Center(
-      child: CircularProgressIndicator(),
+    builder: (BuildContext context) => WillPopScope(
+      onWillPop: () async => false,
+      child: Center(
+        child: CircularProgressIndicator(),
+      ),
     ),
   );
 }
