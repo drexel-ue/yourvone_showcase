@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1071244127746",
+    "firebase_url": "https://yourvone-showcase.firebaseio.com",
+    "project_id": "yourvone-showcase",
+    "storage_bucket": "yourvone-showcase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071244127746:android:33e7c0ca474aa5e8c3811b",
+        "android_client_info": {
+          "package_name": "com.yourvone.yourvone_showcase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071244127746-sne9vou1rudaru8inja0158n21nmt9ns.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yourvone.yourvone_showcase",
+            "certificate_hash": "b188493dc709713ab7c1cae70fe7faedfc42ee49"
+          }
+        },
+        {
+          "client_id": "1071244127746-2hhdsovmcu57vh10b9ni4bika4nageil.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXOzdNjSVl3LQp-7qhLroG-_KIwA1R0M0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071244127746-2hhdsovmcu57vh10b9ni4bika4nageil.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1071244127746-5empmlfmr0qceqiespgndij61rtvb4ku.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yourvone.yourvoneShowcase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
