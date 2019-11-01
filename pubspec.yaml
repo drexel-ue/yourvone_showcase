@@ -30,6 +30,10 @@ dependencies:
 
   cloud_firestore: any
 
+  provider: any
+
+  rxdart: any
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
