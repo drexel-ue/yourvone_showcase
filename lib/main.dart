@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:yourvone_showcase/blocs/user_bloc.dart';
 import 'package:yourvone_showcase/utils.dart';
 import 'package:yourvone_showcase/views/auth.dart';
 import 'package:yourvone_showcase/views/chat.dart';
@@ -13,18 +15,27 @@ void main() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   runApp(
-    MaterialApp(
-      title: 'Chat Demo',
-      theme: ThemeData.dark(),
-      initialRoute: landingRoute,
-      routes: {
-        landingRoute: (BuildContext context) => Landing(),
-        nexusRoute: (BuildContext context) => Nexus(),
-        authRoute: (BuildContext context) => Auth(),
-        registrationRoute: (BuildContext context) => Registration(),
-        loginRoute: (BuildContext context) => Login(),
-        chatRoute: (BuildContext context) => Chat(),
-      },
+    MultiProvider(
+      providers: <SingleChildCloneableWidget>[
+        Provider(
+          builder: (BuildContext context) => UserBloc(),
+          dispose: (BuildContext context, UserBloc userBloc) =>
+              userBloc.dispose(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Chat Demo',
+        theme: ThemeData.dark(),
+        initialRoute: landingRoute,
+        routes: {
+          landingRoute: (BuildContext context) => Landing(),
+          nexusRoute: (BuildContext context) => Nexus(),
+          authRoute: (BuildContext context) => Auth(),
+          registrationRoute: (BuildContext context) => Registration(),
+          loginRoute: (BuildContext context) => Login(),
+          chatRoute: (BuildContext context) => Chat(),
+        },
+      ),
     ),
   );
 }
