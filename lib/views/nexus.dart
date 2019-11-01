@@ -18,9 +18,9 @@ class Nexus extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           NavigationTile(
-            leading: Icon(Icons.person),
+            leading: Icon(Icons.message),
             route: loginRoute,
-            title: 'Login',
+            title: 'Chat',
           ),
         ],
       ),
