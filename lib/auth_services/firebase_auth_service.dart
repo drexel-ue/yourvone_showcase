@@ -27,7 +27,7 @@ class FirebaseAuthService extends Auth {
       info.displayName = name;
       await result.user.updateProfile(info);
 
-      return _userFromFirebaseUser(result.user);
+      return _userFromFirebaseUser(result.user, name: name);
     } else {
       Navigator.pop(context);
       showDialog(
@@ -73,10 +73,11 @@ class FirebaseAuthService extends Auth {
   Stream<User> get onAuthStateChange => _firebaseAuth.onAuthStateChanged
       .map((FirebaseUser user) => _userFromFirebaseUser(user));
 
-  _userFromFirebaseUser(FirebaseUser user) {
+  _userFromFirebaseUser(FirebaseUser user, {String name}) {
     if (user == null) {
       return null;
     }
-    return User(uid: user.uid, name: user.displayName, emailId: user.email);
+    return User(
+        uid: user.uid, name: name ?? user.displayName, emailId: user.email);
   }
 }
