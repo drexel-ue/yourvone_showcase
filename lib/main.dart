@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yourvone_showcase/utils.dart';
+import 'package:yourvone_showcase/views/auth.dart';
 import 'package:yourvone_showcase/views/chat.dart';
 import 'package:yourvone_showcase/views/landing.dart';
 import 'package:yourvone_showcase/views/login.dart';
@@ -19,6 +20,7 @@ void main() async {
       routes: {
         landingRoute: (BuildContext context) => Landing(),
         nexusRoute: (BuildContext context) => Nexus(),
+        authRoute: (BuildContext context) => Auth(),
         registrationRoute: (BuildContext context) => Registration(),
         loginRoute: (BuildContext context) => Login(),
         chatRoute: (BuildContext context) => Chat(),

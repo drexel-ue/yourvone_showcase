@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const landingRoute = 'LANDING';
 const nexusRoute = 'NEXUS';
+const authRoute = 'AUTH';
 const loginRoute = 'LOGIN';
 const registrationRoute = 'REGISTRATION';
 const chatRoute = 'CHAT';

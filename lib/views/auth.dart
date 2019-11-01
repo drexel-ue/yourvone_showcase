@@ -40,16 +40,25 @@ class _AuthState extends State<Auth> {
               ),
               SizedBox(height: 20),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  CustomButton(
-                    text: 'Log In',
-                    callback: () async {
+                  FlatButton(
+                    color: Colors.teal,
+                    child: const Text(
+                      'Log In',
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                    onPressed: () {
                       Navigator.pushNamed(context, loginRoute);
                     },
                   ),
-                  CustomButton(
-                    text: 'Register',
-                    callback: () async {
+                  FlatButton(
+                    color: Colors.teal,
+                    child: const Text(
+                      'Register',
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                    onPressed: () {
                       Navigator.pushNamed(context, registrationRoute);
                     },
                   ),

@@ -19,7 +19,7 @@ class Nexus extends StatelessWidget {
         children: <Widget>[
           NavigationTile(
             leading: Icon(Icons.message),
-            route: loginRoute,
+            route: authRoute,
             title: 'Chat',
           ),
         ],
