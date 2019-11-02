@@ -1,29 +1,27 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:yourvone_showcase/auth_services/firebase_auth_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 import 'package:yourvone_showcase/auth_services/user.dart';
+import 'package:yourvone_showcase/blocs/user_bloc.dart';
 
 class Chat extends StatefulWidget {
-  const Chat({Key key, this.user}) : super(key: key);
-
-  final User user;
+  const Chat({Key key}) : super(key: key);
 
   @override
   _ChatState createState() => _ChatState();
 }
 
 class _ChatState extends State<Chat> {
-  final _auth = FirebaseAuthService();
   final _fireStore = Firestore();
   final _messageController = TextEditingController();
   final _scrollController = ScrollController();
 
-  Future<void> _sendMessage() async {
+  Future<void> _sendMessage(User user) async {
     if (_messageController.text.length > 0) {
       await _fireStore.collection('messages').add({
         'message': _messageController.text,
-        'from': widget.user.uid,
-        'sender_name': widget.user.name,
+        'from': user.uid,
+        'sender_name': user.name,
         'timestamp': DateTime.now().millisecondsSinceEpoch,
       });
       _messageController.clear();
@@ -37,6 +35,8 @@ class _ChatState extends State<Chat> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserBloc>(context).user;
+
     return Scaffold(
       appBar: AppBar(
         leading: Hero(
@@ -64,7 +64,7 @@ class _ChatState extends State<Chat> {
                         (DocumentSnapshot document) => Message(
                             from: document.data['sender_name'],
                             message: document.data['message'],
-                            me: widget.user.uid == document.data['from'],
+                            me: user.uid == document.data['from'],
                             timestamp: document.data['timestamp']),
                       )
                       .toList();
@@ -91,7 +91,7 @@ class _ChatState extends State<Chat> {
                 children: <Widget>[
                   Expanded(
                     child: TextField(
-                      onSubmitted: (String value) => _sendMessage(),
+                      onSubmitted: (String value) => _sendMessage(user),
                       controller: _messageController,
                       keyboardAppearance: Brightness.dark,
                       decoration: const InputDecoration(
@@ -106,7 +106,7 @@ class _ChatState extends State<Chat> {
                   ),
                   SizedBox(width: 10),
                   SendButton(
-                    callback: _sendMessage,
+                    callback: () => _sendMessage(user),
                     text: 'send',
                   )
                 ],
