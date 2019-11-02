@@ -1,15 +1,10 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:yourvone_showcase/events/notification_event.dart';
 
 class NotificationBloc {
   final _fcm = FirebaseMessaging();
-  String _fcmToken;
-  final _usersRef = Firestore.instance.collection('users').reference();
+  String fcmToken;
 
   final eventSubject = BehaviorSubject<NotificationEvent>();
 
@@ -22,13 +17,9 @@ class NotificationBloc {
   }
 
   void _initialize(String uid) async {
-    if (_fcmToken == null) {
+    if (fcmToken == null) {
       _fcm.requestNotificationPermissions();
-      _fcmToken = await _fcm.getToken();
-
-      await _usersRef.document(uid).setData({
-        'fcmToken': _fcmToken,
-      }, merge: true);
+      fcmToken = await _fcm.getToken();
 
       _fcm.configure(
         onMessage: (Map<String, dynamic> message) async {
