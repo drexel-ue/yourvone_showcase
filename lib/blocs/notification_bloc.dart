@@ -12,6 +12,8 @@ class NotificationBloc {
     eventSubject.listen((NotificationEvent event) {
       if (event is Initialize) {
         _initialize();
+      } else if (event is RevokePermission) {
+        _revokePermissions();
       }
     });
   }
@@ -36,6 +38,10 @@ class NotificationBloc {
         },
       );
     }
+  }
+
+  void _revokePermissions() async {
+    await _fcm.deleteInstanceID();
   }
 
   dispose() {
