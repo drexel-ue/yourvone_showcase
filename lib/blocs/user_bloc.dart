@@ -14,12 +14,21 @@ class UserBloc {
 
   UserBloc() {
     eventSubject.listen((UserEvent event) {
-      if (event is SetUser) _setUser(event.user);
+      if (event is SetUser) {
+        _setUser(event.user);
+      } else if (event is UnsetUser) {
+        _unsetUser();
+      }
     });
   }
 
   void _setUser(User _user) {
     user = _user;
+    _userSubject.add(user);
+  }
+
+  void _unsetUser() {
+    user = null;
     _userSubject.add(user);
   }
 
