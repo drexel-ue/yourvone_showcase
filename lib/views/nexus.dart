@@ -34,12 +34,12 @@ class Nexus extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           NavigationTile(
-            leading: Icon(Icons.message),
+            leading: const Icon(Icons.message),
             route: chatRoute,
             title: 'Chat',
           ),
           NavigationTile(
-            leading: Icon(Icons.notifications),
+            leading: const Icon(Icons.notifications),
             route: notiRoute,
             title: 'Push Notifications',
           ),
