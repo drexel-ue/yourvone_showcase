@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yourvone_showcase/auth_services/firebase_auth_service.dart';
 import 'package:yourvone_showcase/auth_services/user.dart';
+import 'package:yourvone_showcase/views/nexus.dart';
 import 'package:yourvone_showcase/widgets/custom_button.dart';
-
-import 'chat.dart';
 
 class Login extends StatefulWidget {
   const Login({Key key}) : super(key: key);
@@ -29,7 +28,7 @@ class _LoginState extends State<Login> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (BuildContext context) => Chat(user: _user),
+          builder: (BuildContext context) => Nexus(),
         ),
       );
   }

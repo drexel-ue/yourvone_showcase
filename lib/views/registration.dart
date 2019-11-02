@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yourvone_showcase/auth_services/firebase_auth_service.dart';
 import 'package:yourvone_showcase/auth_services/user.dart';
-import 'package:yourvone_showcase/views/chat.dart';
+import 'package:yourvone_showcase/views/nexus.dart';
 import 'package:yourvone_showcase/widgets/custom_button.dart';
 
 class Registration extends StatefulWidget {
@@ -29,7 +29,7 @@ class _RegistrationState extends State<Registration> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (BuildContext context) => Chat(user: _user),
+          builder: (BuildContext context) => Nexus(),
         ),
       );
   }
