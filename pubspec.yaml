@@ -34,6 +34,8 @@ dependencies:
 
   rxdart: any
 
+  firebase_messaging: any
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
