@@ -25,7 +25,7 @@ void main() async {
         ),
       ],
       child: MaterialApp(
-        title: 'Chat Demo',
+        title: 'V One Showcase',
         theme: ThemeData.dark(),
         initialRoute: landingRoute,
         routes: {
