@@ -25,6 +25,7 @@ class NotificationBloc {
     if (fcmToken == null) {
       _fcm.requestNotificationPermissions();
       fcmToken = await _fcm.getToken();
+      await _fcm.subscribeToTopic('messages');
 
       _fcm.configure(
         onMessage: (Map<String, dynamic> message) async {
@@ -48,6 +49,7 @@ class NotificationBloc {
   void _revokePermissions() async {
     fcmToken = null;
     _permissionSubject.add(fcmToken);
+    await _fcm.unsubscribeFromTopic('messages');
     await _fcm.deleteInstanceID();
   }
 

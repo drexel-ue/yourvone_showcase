@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 import 'package:yourvone_showcase/auth_services/user.dart';
+import 'package:yourvone_showcase/blocs/notification_bloc.dart';
 import 'package:yourvone_showcase/blocs/user_bloc.dart';
 
 class Chat extends StatefulWidget {
@@ -62,10 +63,11 @@ class _ChatState extends State<Chat> {
                   final _messages = snapshot.data.documents
                       .map(
                         (DocumentSnapshot document) => Message(
-                            from: document.data['sender_name'],
-                            message: document.data['message'],
-                            me: user.uid == document.data['from'],
-                            timestamp: document.data['timestamp']),
+                          from: document.data['sender_name'],
+                          message: document.data['message'],
+                          me: user.uid == document.data['from'],
+                          timestamp: document.data['timestamp'],
+                        ),
                       )
                       .toList();
 
