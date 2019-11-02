@@ -18,8 +18,8 @@ class PushNotis extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ListTile(
-              leading: Icon(Icons.notifications_off),
-              title: Text('Enable Push Notifications'),
+              leading: const Icon(Icons.notifications_off),
+              title: const Text('Enable Push Notifications'),
               trailing: Switch.adaptive(
                 value: false,
                 onChanged: (bool value) {},
