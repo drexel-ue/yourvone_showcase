@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:yourvone_showcase/auth_services/firebase_auth_service.dart';
-import 'package:yourvone_showcase/auth_services/user.dart';
 import 'package:yourvone_showcase/utils.dart';
-import 'package:yourvone_showcase/widgets/custom_button.dart';
-
-import 'chat.dart';
 
 class Auth extends StatefulWidget {
   const Auth({Key key}) : super(key: key);

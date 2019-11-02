@@ -26,7 +26,7 @@ class Landing extends StatelessWidget {
             const SizedBox(height: 40),
             FlatButton(
               onPressed: () {
-                Navigator.pushNamed(context, nexusRoute);
+                Navigator.pushNamed(context, authRoute);
               },
               color: Colors.teal,
               child: const Text(
