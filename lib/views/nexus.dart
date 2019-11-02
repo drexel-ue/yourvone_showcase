@@ -38,6 +38,11 @@ class Nexus extends StatelessWidget {
             route: chatRoute,
             title: 'Chat',
           ),
+          NavigationTile(
+            leading: Icon(Icons.notifications),
+            route: chatRoute,
+            title: 'Push Notifications',
+          ),
         ],
       ),
     );

@@ -8,6 +8,7 @@ import 'package:yourvone_showcase/views/chat.dart';
 import 'package:yourvone_showcase/views/landing.dart';
 import 'package:yourvone_showcase/views/login.dart';
 import 'package:yourvone_showcase/views/nexus.dart';
+import 'package:yourvone_showcase/views/push_notis.dart';
 import 'package:yourvone_showcase/views/registration.dart';
 
 void main() async {
@@ -34,6 +35,7 @@ void main() async {
           registrationRoute: (BuildContext context) => Registration(),
           loginRoute: (BuildContext context) => Login(),
           chatRoute: (BuildContext context) => Chat(),
+          notiRoute: (BuildContext context) => PushNotis(),
         },
       ),
     ),
