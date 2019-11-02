@@ -15,6 +15,7 @@ class PushNotis extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ListTile(
               leading: Icon(Icons.notifications_off),
