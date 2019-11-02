@@ -46,15 +46,6 @@ class _ChatState extends State<Chat> {
           ),
         ),
         title: const Text('Chat'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.close),
-            onPressed: () {
-              _auth.signOut();
-              Navigator.popUntil(context, (Route route) => route.isFirst);
-            },
-          ),
-        ],
       ),
       body: SafeArea(
         child: Column(
