@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:yourvone_showcase/auth_services/firebase_auth_service.dart';
 import 'package:yourvone_showcase/auth_services/user.dart';
+import 'package:yourvone_showcase/blocs/user_bloc.dart';
 import 'package:yourvone_showcase/views/nexus.dart';
 import 'package:yourvone_showcase/widgets/custom_button.dart';
 
@@ -18,23 +20,27 @@ class _LoginState extends State<Login> {
 
   final _auth = FirebaseAuthService();
 
-  Future<void> _loginUser() async {
+  Future<void> _loginUser(UserBloc userBloc) async {
     User _user =
         await _auth.signInWithEmailAndPassword(_email, _password, context);
 
     SystemChannels.textInput.invokeMethod('TextInput.hide');
 
-    if (_user != null)
+    if (_user != null) {
+      userBloc.eventSubject.add(SetUser(_user));
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (BuildContext context) => Nexus(),
         ),
       );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    final _userBloc = Provider.of<UserBloc>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login'),
@@ -89,7 +95,7 @@ class _LoginState extends State<Login> {
               CustomButton(
                 text: 'Log In',
                 callback: () async {
-                  await _loginUser();
+                  await _loginUser(_userBloc);
                 },
               ),
               Expanded(

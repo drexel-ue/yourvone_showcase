@@ -2,6 +2,8 @@ import 'package:rxdart/subjects.dart';
 import 'package:yourvone_showcase/auth_services/user.dart';
 import 'package:yourvone_showcase/events/user_event.dart';
 
+export 'package:yourvone_showcase/events/user_event.dart';
+
 class UserBloc {
   User user;
 

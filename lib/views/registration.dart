@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:yourvone_showcase/auth_services/firebase_auth_service.dart';
 import 'package:yourvone_showcase/auth_services/user.dart';
+import 'package:yourvone_showcase/blocs/user_bloc.dart';
 import 'package:yourvone_showcase/views/nexus.dart';
 import 'package:yourvone_showcase/widgets/custom_button.dart';
 
@@ -19,23 +21,27 @@ class _RegistrationState extends State<Registration> {
 
   final _auth = FirebaseAuthService();
 
-  Future<void> _registerUser() async {
+  Future<void> _registerUser(UserBloc userBloc) async {
     User _user = await _auth.createUserWithEmailAndPassword(
         _name, _email, _password, context);
 
     SystemChannels.textInput.invokeMethod('TextInput.hide');
 
-    if (_user != null)
+    if (_user != null) {
+      userBloc.eventSubject.add(SetUser(_user));
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (BuildContext context) => Nexus(),
         ),
       );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    final _userBloc = Provider.of<UserBloc>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Register'),
@@ -103,7 +109,7 @@ class _RegistrationState extends State<Registration> {
               CustomButton(
                 text: 'Register',
                 callback: () async {
-                  await _registerUser();
+                  await _registerUser(_userBloc);
                 },
               ),
               Expanded(
