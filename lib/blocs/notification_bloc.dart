@@ -11,12 +11,12 @@ class NotificationBloc {
   NotificationBloc() {
     eventSubject.listen((NotificationEvent event) {
       if (event is Initialize) {
-        _initialize(event.uid);
+        _initialize();
       }
     });
   }
 
-  void _initialize(String uid) async {
+  void _initialize() async {
     if (fcmToken == null) {
       _fcm.requestNotificationPermissions();
       fcmToken = await _fcm.getToken();
