@@ -6,6 +6,9 @@ class NotificationBloc {
   final _fcm = FirebaseMessaging();
   String fcmToken;
 
+  final _permissionSubject = BehaviorSubject<String>();
+  Stream<String> get permissionStream => _permissionSubject.stream;
+
   final eventSubject = BehaviorSubject<NotificationEvent>();
 
   NotificationBloc() {
@@ -37,15 +40,19 @@ class NotificationBloc {
           print('on launch $message');
         },
       );
+
+      _permissionSubject.add(fcmToken);
     }
   }
 
   void _revokePermissions() async {
     fcmToken = null;
+    _permissionSubject.add(fcmToken);
     await _fcm.deleteInstanceID();
   }
 
   dispose() {
+    _permissionSubject?.drain();
     eventSubject?.drain();
   }
 }
