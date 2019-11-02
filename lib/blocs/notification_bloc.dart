@@ -41,6 +41,7 @@ class NotificationBloc {
   }
 
   void _revokePermissions() async {
+    fcmToken = null;
     await _fcm.deleteInstanceID();
   }
 
